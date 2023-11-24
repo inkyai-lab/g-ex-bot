@@ -19,10 +19,10 @@ export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "234dc");
 //   .url('Web Connect', 'https://ait-finance-connect.web.app')
 
 const keyboard = new Keyboard()
-  .webApp("🌑 Exchange", "https://guiser.org/swap").row()
+  .text("🌑 Exchange").row()
+  // .webApp("🌑 Exchange", "https://guiser.org/swap").row()
   .text("🆘 Contact Support")
   .resized();
-  // .text("🌑 Exchange").row()
 
 // Send a keyboard along with a message.
 bot.command("start", async (ctx) => {
