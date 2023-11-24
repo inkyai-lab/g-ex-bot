@@ -21,7 +21,7 @@ export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "234dc");
 const keyboard = new Keyboard()
   .text("🌑 Exchange").row()
   // .webApp("🌑 Exchange", "https://guiser.org/swap").row()
-  .text("🆘 Contact Support", 'support')
+  .text("🆘 Contact Support")
   .resized();
 
 // Send a keyboard along with a message.
@@ -30,10 +30,24 @@ bot.command("start", async (ctx) => {
   { reply_markup: keyboard });
 });
 
-// Wait for click events with specific callback data.
-bot.callbackQuery("support", async (ctx) => {
-  await ctx.reply("Contact our 24/7 customer support in case your order is taking more than 30 minutes to complete @askGuiserBot", { reply_markup: keyboard });
+bot.on('message:text', async (ctx) => {
+  try {
+      const btnText = ctx.message.text;
+  if ( btnText === "🆘 Contact Support" )  {
+    ctx.reply("Contact our 24/7 customer support in case your order is taking more than 30 minutes to complete @askGuiserBot"); // Reply to the user with a confirmation message
+  } else {
+    await ctx.reply("Contact our 24/7 customer support in case your order is taking more than 30 minutes to complete @askGuiserBot", { reply_markup: Keyboard });
+  }
+  } catch (error) {
+    console.error(error)
+  }
+  
 });
+
+// // Wait for click events with specific callback data.
+// bot.callbackQuery("support", async (ctx) => {
+//   await ctx.reply("Contact our 24/7 customer support in case your order is taking more than 30 minutes to complete @askGuiserBot", { reply_markup: keyboard });
+// });
 
 // // Wait for click events with specific callback data.
 // bot.callbackQuery("manualConnect", async (ctx) => {
