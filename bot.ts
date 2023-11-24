@@ -26,7 +26,8 @@ const keyboard = new Keyboard()
 
 // Send a keyboard along with a message.
 bot.command("start", async (ctx) => {
-  await ctx.reply("Welcome to official AI Trader support assistant!", { reply_markup: keyboard });
+  await ctx.reply("Trade your favorite cryptos like BTC, ETH, MATIC, XMR, SOL, and thousands more, including those quirky meme tokens, all hassle-free on Telegram!", 
+  { reply_markup: keyboard });
 });
 
 // // Wait for click events with specific callback data.
