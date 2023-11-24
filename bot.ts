@@ -1,7 +1,7 @@
 import { Bot, Keyboard } from "./deps.deno.ts";
 // import axiod from "https://deno.land/x/axiod/mod.ts";
 
-export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "");
+export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "234dc");
 
 // // Construct a keyboard.
 // const inlineKeyboard = new InlineKeyboard().text("Connect Wallet", "click-payload");
