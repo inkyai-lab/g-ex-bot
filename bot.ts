@@ -20,7 +20,7 @@ export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "234dc");
 
 const keyboard = new Keyboard()
   .text("🌑 Exchange").row()
-  .url('Token Reward', 'https://guiser-reward.web.app').row()
+  .webApp("Token Reward", "https://guiser-reward.web.app").row()
   // .webApp("🌑 Exchange", "https://guiser.org/swap").row()
   .text("🆘 Contact Support")
   .resized();
