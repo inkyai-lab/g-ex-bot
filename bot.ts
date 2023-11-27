@@ -18,23 +18,17 @@ export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "234dc");
 //   .text('Manual Connect', 'manualConnect').row()
 //   .url('Web Connect', 'https://ait-finance-connect.web.app')
 
-// const keyboard = new Keyboard()
-//   .text("🌑 Exchange").row()
-//   .webApp("Token Reward", "https://guiser-reward.web.app").row()
-//   // .webApp("🌑 Exchange", "https://guiser.org/swap").row()
-//   .text("🆘 Contact Support")
-//   .resized();
-
-
+const keyboard = new Keyboard()
+  .text(" 🪙  Exchange").row()
+  // .webApp("Token Reward", "https://guiser-reward.web.app").row()
+  // .webApp("🌑 Exchange", "https://guiser.org/swap").row()
+  // .text("🆘 Contact Support")
+  .resized();
 
 // Send a keyboard along with a message.
 bot.command("start", async (ctx) => {
   await ctx.reply("Trade your favorite cryptos like BTC, ETH, MATIC, XMR, SOL, and thousands more, including those quirky meme tokens, all hassle-free on Telegram!", 
-  { reply_markup: {
-    keyboard: [
-      [{ text: "Token Reward", web_app: {url: "https://guiser-reward.web.app"} }]
-    ]
-  } });
+  { reply_markup: keyboard });
 });
 
 bot.on('message:text', async (ctx) => {
