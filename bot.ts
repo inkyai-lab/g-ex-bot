@@ -4,10 +4,9 @@ import { Bot, Keyboard } from "./deps.deno.ts";
 export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "234dc");
 
 const keyboard = new Keyboard()
-  .text(" 🪙  Exchange").row()
-  .webApp("Token Reward", "https://guiser-reward.web.app")
-  // .webApp("🌑 Exchange", "https://guiser.org/swap").row()
-  // .text("🆘 Contact Support")
+  .webApp("🪙  Exchange", "https://guiser-reward.web.app").row()
+  .webApp("🎁 Token Reward", "https://guiser-reward.web.app").row()
+  .text("🆘 Contact Support")
   .resized();
 
 // Send a keyboard along with a message.
@@ -18,11 +17,11 @@ bot.command("start", async (ctx) => {
 
 bot.on('message:text', async (ctx) => {
   try {
-      const btnText = ctx.message.text;
+      const btnText = ctx.msg.text;
   if ( btnText === "🆘 Contact Support" )  {
-    ctx.reply("Contact our 24/7 customer support in case your order is taking more than 30 minutes to complete @askGuiserBot"); // Reply to the user with a confirmation message
+    ctx.reply("Contact our 24/7 customer support in case your order is taking more than 30 minutes to complete @guiser_support"); // Reply to the user with a confirmation message
   } else {
-    await ctx.reply("Contact our 24/7 customer support in case your order is taking more than 30 minutes to complete @askGuiserBot", { reply_markup: Keyboard });
+    await ctx.reply("Contact our 24/7 customer support in case your order is taking more than 30 minutes to complete @guiser_support");
   }
   } catch (error) {
     console.error(error)
